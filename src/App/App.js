@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { NavLink, Routes, Route } from 'react-router-dom';
+import Pokemon from '../Pokemon/Pokemon';
+import Deck from '../Deck/Deck';
+import pokemonCall from '../ApiCalls/ApiCalls'
 
 function App() {
+const [pokemon, setPokemon] = useState([]);
+const [error, setError] = useState('')
+
+useEffect(() => {
+    pokemonCall()
+    .then(data => {
+        setPokemon(data.results);
+    })
+    .catch(error => {
+        setError(error.message);
+        })
+}, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className="App">
+      <header>
+        <NavLink to='/'>PokeDeck</NavLink>
       </header>
-    </div>
+      <Routes>
+        <Route path='/' element={<Pokemon pokemon={pokemon}/>}></Route>
+        <Route path='/deck' element={<Deck/>}></Route>
+      </Routes>
+    </main>
   );
 }
 
