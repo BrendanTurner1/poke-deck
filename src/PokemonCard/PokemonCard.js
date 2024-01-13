@@ -1,4 +1,6 @@
+import './PokemonCard.css';
 import { useEffect, useState } from "react";
+import { pokemonImg, pokemonInfo } from '../ApiCalls/ApiCalls'
 
 export default function PokemonCard({ card }) {
     const [cardInfo, setCardInfo] = useState([]);
@@ -7,22 +9,10 @@ export default function PokemonCard({ card }) {
 
 
     useEffect(() => {
-        fetch(card.url)
-        .then(response => {
-            if(!response.ok) {
-                console.log('error')
-            }
-            return response.json();
-        })
+        pokemonInfo(card.url)
         .then(data => {
             setCardInfo(data);
-            fetch(data.forms[0].url)
-                .then(response => {
-                    if(!response.ok) {
-                        console.log('error')
-                    }
-                    return response.json();
-                })
+            pokemonImg(data.forms[0].url)
                 .then(img => {
                     setCardImg(img.sprites.front_default);
                 })
@@ -33,14 +23,12 @@ export default function PokemonCard({ card }) {
         .catch(error => {
             setError(error.message);
         })
-},[])
+},[card.name])
 
     return (
        <div>
             <h1>{card.name}</h1>
-            {/* {console.log(cardInfo.forms[0].url, `card ${card.name}`)} */}
             <img src={cardImg}></img>
-            <h2></h2>
        </div>
     )
 }

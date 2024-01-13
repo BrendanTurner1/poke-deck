@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import Pokemon from '../Pokemon/Pokemon';
 import Deck from '../Deck/Deck';
-import pokemonCall from '../ApiCalls/ApiCalls'
+import { pokemonCall } from '../ApiCalls/ApiCalls'
 
 function App() {
 const [pokemon, setPokemon] = useState([]);
