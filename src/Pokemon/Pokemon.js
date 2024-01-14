@@ -34,7 +34,7 @@ function Pokemon({ addToDeck }) {
     return (
         <div className='pokemon-main'>
             <h1>Generation One</h1>
-            <Link to='./deck'><h2>View Deck</h2></Link>
+            <Link to='./deck' style={{ color: 'Black', display:'inline-block' }}><h2>View Deck</h2></Link>
             <div>
                 <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
                     Previous
