@@ -1,0 +1,6 @@
+.deck-view {
+    border: solid;
+    border-color: black;
+    border-width: 20px;
+    min-height: 100vh;
+}

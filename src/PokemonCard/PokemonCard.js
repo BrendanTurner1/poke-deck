@@ -30,10 +30,16 @@ export default function PokemonCard({ card, addToDeck }) {
     }
 
     return (
-       <div>
-            {/* <h1>{card.name}</h1> */}
-            <img src={cardImg}></img>
-            <button onClick={handleButtonClick}>Add to Deck</button>
+       <div className='pokemon-container'>
+            <section className='pokemon-card'>
+                <h4>{card.name}</h4>
+                <img className='pokemon-img' src={cardImg}></img>
+                <div className='pokemon-info'>
+                    <p>Move set here</p>
+                    <p>Move 2</p>
+                </div>
+                <button onClick={handleButtonClick}>Add to Deck</button>
+            </section>
        </div>
     )
 }

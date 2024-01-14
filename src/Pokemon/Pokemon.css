@@ -1,0 +1,12 @@
+.pokemon-display {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokemon-main {
+    border: solid;
+    border-color: black;
+    border-width: 20px;
+    min-height: 100vh;
+    height: auto;
+}

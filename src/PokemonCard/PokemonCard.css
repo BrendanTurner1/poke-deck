@@ -1,0 +1,35 @@
+.pokemon-container {
+    min-width: 19%;
+    padding-bottom: 20px;
+    padding-right: 5px;
+}
+
+.pokemon-card, .pokemon-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pokemon-card {
+    aspect-ratio: 2.5/3.5;
+    width:  200px;
+    background-color: rgb(167, 167, 168);
+    border: solid;
+    border-color: yellow;
+    border-width: 8px;
+    border-radius: 10px;
+}
+
+.pokemon-img {
+    background-color: white;
+}
+
+h4 {
+    color: black;
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+.pokemon-info {
+    color: black;
+}

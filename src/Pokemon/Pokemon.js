@@ -32,10 +32,19 @@ function Pokemon({ addToDeck }) {
 
 
     return (
-        <div>
+        <div className='pokemon-main'>
             <h1>Generation One</h1>
-            <Link to='./deck'><h2>View Deck</h2></Link>
-            <ul>
+            <Link to='./deck' style={{ color: 'Black', display:'inline-block' }}><h2>View Deck</h2></Link>
+            <div>
+                <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                    Previous
+                </button>
+                <span>{`Page ${currentPage} of ${totalPages}`}</span>
+                <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                    Next
+                </button>
+            </div>
+            <ul className='pokemon-display'>
             {currentData.map((card, index) => {
                 return (
                     <PokemonCard card={card} key={index} addToDeck={addToDeck}/>
