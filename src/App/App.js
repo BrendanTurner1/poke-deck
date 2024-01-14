@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import Pokemon from '../Pokemon/Pokemon';
 import Deck from '../Deck/Deck';
+import NotFound from '../NotFound/NotFound';
 
 function App() {
   const [deck, setDeck] = useState([])
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Pokemon addToDeck={addToDeck}/>}></Route>
         <Route path='/deck' element={<Deck deck={deck} removeFromDeck={removeFromDeck}/>}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </main>
   );
