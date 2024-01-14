@@ -5,7 +5,7 @@ function Deck({ deck, removeFromDeck }) {
 
 
     return (
-        <div>
+        <div className='deck-view'>
             <ul>
                 {deck.map((card, index) => {
                     return (

@@ -25,7 +25,7 @@ function App() {
   return (
     <main className="App">
       <header>
-        <NavLink to='/'>PokeDeck</NavLink>
+        <NavLink className='navLink' to='/'>PokeDeck</NavLink>
       </header>
       <Routes>
         <Route path='/' element={<Pokemon addToDeck={addToDeck}/>}></Route>

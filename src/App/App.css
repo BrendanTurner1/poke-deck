@@ -3,8 +3,8 @@
 }
 
 header {
-  font-size: 100px;
-  background-color: blue;
+  font-size: 80px;
+  background-color: black;
   margin: none;
   padding: 15px;
   color: white;
@@ -15,5 +15,10 @@ body {
   background-color: red;
   margin: 0;
   padding: 0;
+  color: white;
+}
+
+.navLink {
+  text-decoration: none;
   color: white;
 }

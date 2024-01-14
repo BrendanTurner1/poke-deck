@@ -32,7 +32,7 @@ function Pokemon({ addToDeck }) {
 
 
     return (
-        <div>
+        <div className='pokemon-main'>
             <h1>Generation One</h1>
             <Link to='./deck'><h2>View Deck</h2></Link>
             <div>

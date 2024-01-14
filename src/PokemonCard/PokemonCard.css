@@ -1,6 +1,7 @@
 .pokemon-container {
-    min-width: 20%;
-    padding-bottom: 20px
+    min-width: 19%;
+    padding-bottom: 20px;
+    padding-right: 5px;
 }
 
 .pokemon-card, .pokemon-container {
