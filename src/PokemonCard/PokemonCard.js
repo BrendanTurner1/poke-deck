@@ -2,7 +2,7 @@ import './PokemonCard.css';
 import { useEffect, useState } from "react";
 import { pokemonImg, pokemonInfo } from '../ApiCalls/ApiCalls'
 
-export default function PokemonCard({ card }) {
+export default function PokemonCard({ card, addToDeck }) {
     const [cardInfo, setCardInfo] = useState([]);
     const [cardImg, setCardImg] = useState("");
     const [error, setError] = useState("");
@@ -23,12 +23,17 @@ export default function PokemonCard({ card }) {
         .catch(error => {
             setError(error.message);
         })
-},[card.name])
+    },[card.name])
+
+    const handleButtonClick = () => {
+        addToDeck(card)
+    }
 
     return (
        <div>
-            <h1>{card.name}</h1>
+            {/* <h1>{card.name}</h1> */}
             <img src={cardImg}></img>
+            <button onClick={handleButtonClick}>Add to Deck</button>
        </div>
     )
 }

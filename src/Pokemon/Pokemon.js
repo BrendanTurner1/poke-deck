@@ -1,10 +1,24 @@
 import './Pokemon.css';
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import PokemonCard from "../PokemonCard/PokemonCard";
+import { pokemonCall } from '../ApiCalls/ApiCalls';
 
-function Pokemon({ pokemon }) {
+function Pokemon({ addToDeck }) {
+    const [pokemon, setPokemon] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [error, setError] = useState('')
     const itemsPerPage = 25;
+
+    useEffect(() => {
+        pokemonCall()
+        .then(data => {
+            setPokemon(data.results);
+        })
+        .catch(error => {
+            setError(error.message);
+            })
+    }, [])
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -16,13 +30,15 @@ function Pokemon({ pokemon }) {
         setCurrentPage(pageNumber);
       };
 
+
     return (
         <div>
             <h1>Generation One</h1>
+            <Link to='./deck'><h2>View Deck</h2></Link>
             <ul>
             {currentData.map((card, index) => {
                 return (
-                    <PokemonCard card={card} key={index}/>
+                    <PokemonCard card={card} key={index} addToDeck={addToDeck}/>
                 )
             })}
             </ul>

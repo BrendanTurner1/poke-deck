@@ -1,8 +1,18 @@
+import DeckPokemon from '../DeckPokemon/DeckPokemon';
 import './Deck.css';
 
-function Deck() {
+function Deck({ deck, removeFromDeck }) {
+
+
     return (
-        <h1>Deck</h1>
+        <div>
+            <ul>
+                {deck.map((card, index) => {
+                    return (
+                    <DeckPokemon card={card} removeFromDeck={removeFromDeck} key={index} id={index}></DeckPokemon>)
+                })}
+            </ul>
+        </div>
     )
 }
 

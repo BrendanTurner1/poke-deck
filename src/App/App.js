@@ -1,23 +1,26 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import Pokemon from '../Pokemon/Pokemon';
 import Deck from '../Deck/Deck';
-import { pokemonCall } from '../ApiCalls/ApiCalls'
 
 function App() {
-const [pokemon, setPokemon] = useState([]);
-const [error, setError] = useState('')
+  const [deck, setDeck] = useState([])
 
-useEffect(() => {
-    pokemonCall()
-    .then(data => {
-        setPokemon(data.results);
-    })
-    .catch(error => {
-        setError(error.message);
-        })
-}, [])
+  const addToDeck = (newValue) => {
+    if(deck.length < 6){
+      setDeck([...deck, newValue]);
+    }
+    else {
+      alert('Deck is full');
+    }
+  }
+
+  const removeFromDeck = (value) => {
+    const updatedDeck = [...deck];
+    updatedDeck.splice(value, 1);
+    setDeck(updatedDeck)
+  }
 
   return (
     <main className="App">
@@ -25,8 +28,8 @@ useEffect(() => {
         <NavLink to='/'>PokeDeck</NavLink>
       </header>
       <Routes>
-        <Route path='/' element={<Pokemon pokemon={pokemon}/>}></Route>
-        <Route path='/deck' element={<Deck/>}></Route>
+        <Route path='/' element={<Pokemon addToDeck={addToDeck}/>}></Route>
+        <Route path='/deck' element={<Deck deck={deck} removeFromDeck={removeFromDeck}/>}></Route>
       </Routes>
     </main>
   );
