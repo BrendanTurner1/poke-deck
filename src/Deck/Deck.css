@@ -4,3 +4,7 @@
     border-width: 20px;
     min-height: 100vh;
 }
+.deck-display {
+    display: flex;
+    flex-wrap: wrap;
+}
