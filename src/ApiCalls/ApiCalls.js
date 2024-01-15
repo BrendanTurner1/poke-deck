@@ -20,14 +20,4 @@ function pokemonInfo(api) {
     })
 }
 
-function pokemonImg(api) {
-    return fetch(api)
-    .then(response => {
-        if(!response.ok) {
-            console.log('error')
-        }
-        return response.json();
-    })
-}
-
-export { pokemonCall, pokemonImg, pokemonInfo}
+export { pokemonCall, pokemonInfo}

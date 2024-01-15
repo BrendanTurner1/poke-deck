@@ -1,14 +1,19 @@
 import './Pokemon.css';
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import { pokemonCall } from '../ApiCalls/ApiCalls';
 
+const urlGet = (url) => {
+    return url.split('/').filter((segment)=>{return segment!=''}).pop()
+}
+
 function Pokemon({ addToDeck }) {
     const [pokemon, setPokemon] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [error, setError] = useState('')
-    const itemsPerPage = 25;
+    const [error, setError] = useState('');
+    const [searchParams] = useSearchParams();
+    const itemsPerPage = searchParams.get('itemsperpage')||25;
 
     useEffect(() => {
         pokemonCall()
@@ -29,7 +34,8 @@ function Pokemon({ addToDeck }) {
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
       };
-
+    
+    
 
     return (
         <div className='pokemon-main'>
@@ -45,9 +51,9 @@ function Pokemon({ addToDeck }) {
                 </button>
             </div>
             <ul className='pokemon-display'>
-            {currentData.map((card, index) => {
+            {currentData.map((card) => {
                 return (
-                    <PokemonCard card={card} key={index} addToDeck={addToDeck}/>
+                    <PokemonCard id={urlGet(card.url)} key={card.url} onClick={addToDeck} buttonText={'Add to Deck'}/>
                 )
             })}
             </ul>

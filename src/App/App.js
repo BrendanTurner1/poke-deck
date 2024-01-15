@@ -8,18 +8,22 @@ import NotFound from '../NotFound/NotFound';
 function App() {
   const [deck, setDeck] = useState([])
 
-  const addToDeck = (newValue) => {
+  const addToDeck = (id) => {
     if(deck.length < 6){
-      setDeck([...deck, newValue]);
+      const deckId = deck.length+1;
+      setDeck([...deck, {id: id,
+      deckId: deckId}]);
     }
     else {
       alert('Deck is full');
     }
   }
 
-  const removeFromDeck = (value) => {
-    const updatedDeck = [...deck];
-    updatedDeck.splice(value, 1);
+  const removeFromDeck = (deckId) => {
+    const updatedDeck = deck.filter((card) => {
+      return card.deckId!==deckId
+    })
+
     setDeck(updatedDeck)
   }
 
