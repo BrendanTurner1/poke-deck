@@ -13,7 +13,7 @@ function Deck({ deck, removeFromDeck }) {
                     <PokemonCard id={item.id} deckId={item.deckId} onClick={removeFromDeck} key={item.deckId} buttonText={'Remove'}></PokemonCard>)
                 })}
             </ul>
-            <Link to='/' style={{ border: 'solid', borderRadius: '5px', backgroundColor: 'white', textDecoration: 'none', color: 'black', fontSize: '20px'}}>Home</Link>
+            <Link className='Link' to='/' style={{ border: 'solid', borderRadius: '5px', backgroundColor: 'white', textDecoration: 'none', color: 'black', fontSize: '20px'}}>Home</Link>
         </div>
     )
 }
