@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# PokeDeck
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PokeDeck
+![Tests](https://badgen.net/badge/tests/passing/green?icon=github)
 
-## Available Scripts
+## 💾 Technologies Used
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![React](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Cypress](https://img.shields.io/badge/-cypress-%238D6748?style=for-the-badge&logo=cypress&logoColor=white)
 
-In the project directory, you can run:
+## Collaborators
+[Brendan Turner](https://github.com/BrendanTurner1) 
 
-### `npm start`
+</div>
+## Abstract
+This application strives to present a simple set of pokemon data formatted into a nostalgic cardlike format. These cards are meant to be added to a deck for viewing on a separate page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Context
+This project was assigned as a showcase project to develop the asignee's skills across multiple technologies. The goal was to create a simple user friendly app in react with robust testing and a reponsive layout. This project was completed in Week 5 of Mod 3 of the Front End Development program at Turing School of Software & Design.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Preview
+<img width="720" alt="image" src="https://github.com/BrendanTurner1/poke-deck/assets/23608422/e5e3d772-c067-4cf9-a07b-503720444d34">
 
-### `npm test`
+## Page Setup
+1. Clone the repository: Open a terminal window. Navigate to the directory where you want to clone the repository: `git clone (copied link)`
+2. Install the dependencies: Run the following command in the cloned repository directory: `npm install`
+3. Run the React app: Run the following command in the cloned repository directory: `npm start`
+4. Open the app in your web browser by navigating to http://localhost:3000
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Learning Goals
+- Developing a multi-page app solo
+- Robust Cypress testing
+- Responsive layout
+- Fetch calls to a public api
 
-### `npm run build`
+## Wins
+- Refactoring the code to be able to reuse the PokemonCard component on the Deck page
+- Having the data displayed on multiple "pages" with navigation buttons
+- Setting the data to a cleaner object inside the fetch call
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Challenges
+- Needing a different id value for deck cards because multiple cards of the same api ID were allowed
+- Refactoring code to allow for page size query for better Cypress testing
+- Prop drilling a function that can change depending on where it is mounted, and having to make that function take in the same value type.
