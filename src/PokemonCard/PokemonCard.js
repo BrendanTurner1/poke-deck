@@ -3,27 +3,25 @@ import { useEffect, useState } from "react";
 import { pokemonInfo } from '../ApiCalls/ApiCalls'
 
 export default function PokemonCard({ id, onClick, deckId, buttonText }) {
-    const [cardImg, setCardImg] = useState("");
-    const [cardName, setCardName] = useState("");
-    const [cardTypes, setCardTypes ] = useState([]);
+    const [thisCard, setThisCard] = useState({
+        name: '',
+        img: '',
+        types: []
+    })
     const [error, setError] = useState("");
-    const thisCard = {
-        name: cardName,
-        img: cardImg,
-        types: cardTypes
-    }
 
     useEffect(() => {
         pokemonInfo(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then(data => {
-            setCardName(data.name);
-            setCardTypes(data.types);
-            setCardImg(data.sprites.front_default)
+            setThisCard( 
+                {name: data.name,
+                img: data.sprites.front_default,
+                types: data.types})
         })
         .catch(error => {
             setError(error.message);
         })
-    },[cardName])
+    },[id])
 
     const handleButtonClick = () => {
         if(deckId) {
@@ -40,7 +38,7 @@ export default function PokemonCard({ id, onClick, deckId, buttonText }) {
                 <h4>{thisCard.name}</h4>
                 <img className='pokemon-img' src={thisCard.img}></img>
                 <div className='pokemon-info'>
-                    {cardTypes.map((type, index) => {
+                    {thisCard.types.map((type, index) => {
                         return (<p key={index}>
                             {type.type.name}
                         </p>)
