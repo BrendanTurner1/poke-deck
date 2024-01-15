@@ -1,53 +1,50 @@
 import './PokemonCard.css';
 import { useEffect, useState } from "react";
-import { pokemonImg, pokemonInfo } from '../ApiCalls/ApiCalls'
+import { pokemonInfo } from '../ApiCalls/ApiCalls'
 
-export default function PokemonCard({ card, addToDeck }) {
-    const [cardInfo, setCardInfo] = useState([]);
-    const [cardImg, setCardImg] = useState("");
-    const [cardTypes, setCardTypes ] = useState([]);
+export default function PokemonCard({ id, onClick, deckId, buttonText }) {
+    const [thisCard, setThisCard] = useState({
+        name: '',
+        img: '',
+        types: []
+    })
     const [error, setError] = useState("");
-    const thisCard = {
-        name: card.name,
-        img: cardImg,
-        types: cardTypes
-    }
 
     useEffect(() => {
-        pokemonInfo(card.url)
+        pokemonInfo(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then(data => {
-            setCardInfo(data);
-            setCardTypes(data.types);
-            pokemonImg(data.forms[0].url)
-                .then(img => {
-                    setCardImg(img.sprites.front_default);
-                })
-                .catch(error => {
-                    console.log(error);
-                })
+            setThisCard( 
+                {name: data.name,
+                img: data.sprites.front_default,
+                types: data.types})
         })
         .catch(error => {
             setError(error.message);
         })
-    },[card.name])
+    },[id])
 
     const handleButtonClick = () => {
-        addToDeck(thisCard)
+        if(deckId) {
+            onClick(deckId)
+        }
+        else{
+            onClick(id)
+        }
     }
 
     return (
        <div className='pokemon-container'>
             <section className='pokemon-card'>
-                <h4>{card.name}</h4>
-                <img className='pokemon-img' src={cardImg}></img>
+                <h4>{thisCard.name}</h4>
+                <img className={`pokemon-img ${id}`} src={thisCard.img} alt={thisCard.name}></img>
                 <div className='pokemon-info'>
-                    {cardTypes.map((type, index) => {
+                    {thisCard.types.map((type, index) => {
                         return (<p key={index}>
                             {type.type.name}
                         </p>)
                     })}
                 </div>
-                <button onClick={handleButtonClick}>Add to Deck</button>
+                <button onClick={handleButtonClick}>{buttonText}</button>
             </section>
        </div>
     )
