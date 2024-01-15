@@ -1,0 +1,14 @@
+{
+    "name": "charmander",
+    "sprites": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+    },
+    "types" : [{
+       "slot": 1,
+       "type": {
+            "name": "fire",
+            "url": "https://pokeapi.co/api/v2/type/10/"
+    }
+   }]
+   }
+   

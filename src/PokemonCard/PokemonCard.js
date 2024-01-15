@@ -36,7 +36,7 @@ export default function PokemonCard({ id, onClick, deckId, buttonText }) {
        <div className='pokemon-container'>
             <section className='pokemon-card'>
                 <h4>{thisCard.name}</h4>
-                <img className='pokemon-img' src={thisCard.img}></img>
+                <img className={`pokemon-img ${id}`} src={thisCard.img}></img>
                 <div className='pokemon-info'>
                     {thisCard.types.map((type, index) => {
                         return (<p key={index}>

@@ -24,6 +24,14 @@ Cypress.Commands.add('mockAPI', () =>{
       statusCode: 200,
       fixture: 'pokemon2Info.json'
     })
+    cy.intercept("GET", "https://pokeapi.co/api/v2/pokemon/3", {
+        statusCode: 200,
+        fixture: 'pokemon3Info.json'
+      })
+      cy.intercept("GET", "https://pokeapi.co/api/v2/pokemon/4", {
+        statusCode: 200,
+        fixture: 'pokemon4Info.json'
+      })
 })
 //
 // -- This is a child command --

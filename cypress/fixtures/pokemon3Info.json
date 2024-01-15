@@ -1,7 +1,7 @@
 {
-    "name": "ivysaur",
+    "name": "venasaur",
     "sprites": {
-       "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
+       "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
     },
     "types" : [{
        "slot": 1,
@@ -17,6 +17,5 @@
            "url": "https://pokeapi.co/api/v2/type/4/"
        }
    }]
-   
    }
    

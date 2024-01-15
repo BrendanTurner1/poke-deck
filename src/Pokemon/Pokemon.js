@@ -41,12 +41,12 @@ function Pokemon({ addToDeck }) {
         <div className='pokemon-main'>
             <h1>Generation One</h1>
             <Link to='./deck' style={{ color: 'Black', display:'inline-block' }}><h2>View Deck</h2></Link>
-            <div>
-                <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+            <div className='pages-top'>
+                <button className='prev-button'onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
                     Previous
                 </button>
-                <span>{`Page ${currentPage} of ${totalPages}`}</span>
-                <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                <span className='page-total'>{`Page ${currentPage} of ${totalPages}`}</span>
+                <button className='next-button' onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
                     Next
                 </button>
             </div>
@@ -57,12 +57,12 @@ function Pokemon({ addToDeck }) {
                 )
             })}
             </ul>
-            <div>
-                <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+            <div className='pages-bot'>
+                <button className='prev-button'onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
                     Previous
                 </button>
-                <span>{`Page ${currentPage} of ${totalPages}`}</span>
-                <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                <span className='page-total'>{`Page ${currentPage} of ${totalPages}`}</span>
+                <button className='next-button'onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
                     Next
                 </button>
             </div>
